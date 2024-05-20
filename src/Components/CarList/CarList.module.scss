@@ -1,0 +1,25 @@
+.carList {
+    padding: 1rem;
+  }
+  
+  .carList ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .carList li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .carList button {
+    margin-left: 1rem;
+    padding: 0.3rem 0.6rem;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .carList button:hover {
+    background-color: #c82333;
+  }
