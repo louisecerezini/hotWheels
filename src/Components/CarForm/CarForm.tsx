@@ -1,8 +1,19 @@
 import React, { useState } from 'react';
 import styles from './CarForm.module.scss';
 
-const CarForm: React.FC = () => {
-  const [car, setCar] = useState({
+interface CarFormProps {
+  onAddCar: (car: Car) => void;  
+}
+
+interface Car {
+  name: string;
+  brand: string;
+  color: string;
+  year: string;
+}
+
+const CarForm: React.FC<CarFormProps> = ({ onAddCar }) => {
+  const [car, setCar] = useState<Car>({
     name: '',
     brand: '',
     color: '',
@@ -19,28 +30,30 @@ const CarForm: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(car);
+    onAddCar(car); 
+    setCar({ name: '', brand: '', color: '', year: '' }); 
   };
 
   return (
     <form onSubmit={handleSubmit} className={styles.form}>
+       <h2>Add Car</h2>
       <div>
-        <label htmlFor="name">Nome:</label>
+        <label htmlFor="name">Name:</label>
         <input type="text" id="name" name="name" value={car.name} onChange={handleChange} />
       </div>
       <div>
-        <label htmlFor="brand">Marca:</label>
+        <label htmlFor="brand">Brand:</label>
         <input type="text" id="brand" name="brand" value={car.brand} onChange={handleChange} />
       </div>
       <div>
-        <label htmlFor="color">Cor:</label>
+        <label htmlFor="color">Color:</label>
         <input type="text" id="color" name="color" value={car.color} onChange={handleChange} />
       </div>
       <div>
-        <label htmlFor="year">Ano:</label>
+        <label htmlFor="year">Year:</label>
         <input type="text" id="year" name="year" value={car.year} onChange={handleChange} />
       </div>
-      <button type="submit">Adicionar</button>
+      <button type="submit">Add</button>
     </form>
   );
 };

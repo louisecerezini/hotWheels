@@ -4,8 +4,8 @@ import styles from './About.module.scss';
 const About: React.FC = () => {
   return (
     <div className={styles.about}>
-      <h1>Sobre</h1>
-      <p>Esta é uma aplicação para um CRUD de carros HotWheels.</p>
+      <h1>About</h1>
+      <p>This is an application for a HotWheels car CRUD.</p>
     </div>
   );
 };

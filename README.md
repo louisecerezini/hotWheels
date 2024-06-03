@@ -1,46 +1,35 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Dev environment guidelines
 
-## Available Scripts
+1. Access the repository:
+ `https://github.com/louisecerezini/-hotWheels`
+2. Clone the repository to your machine:`git clone git@github.com:louisecerezini/-hotWheels.git`
 
-In the project directory, you can run:
+3. Enter the context-react-project folder in the terminal: `cd examples/context-react-project`
 
-### `npm start`
+4. Install the dependencies: `npm install`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+5. Serving the app: `npm start`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+6. For tests: `npm test`
 
-### `npm test`
+## Introduction 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This is a project made in react using typeScript. It's a project for a HotWheels Trolley collection.
 
-### `npm run build`
+## Components
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The components are in the ./src/components directory and have the following characteristics:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Home: This is the homepage. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. About: This is an explanation of the project. It is an application for a CRUD of HotWheels cars.
 
-### `npm run eject`
+3. CarForm: This is a form to add cars, the user can add cars according to the name, brand, color and year.  
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+4. CarList: This is a list of cars and the user can delete the cars. 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. NavBar: This component is using for the application links. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Conclusion
+This project is for demonstration purposes only and does not contain more changes than necessary to demonstrate some useful features for developing projects in ReactJS.

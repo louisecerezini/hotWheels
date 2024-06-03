@@ -18,12 +18,14 @@
   
   .form button {
     padding: 0.5rem 1rem;
-    background-color: #007bff;
+    background-color: #b300aa;
     color: #fff;
-    border: none;
+    border: 1.0;
     cursor: pointer;
+    width: 100px;
+    
   }
   
   .form button:hover {
-    background-color: #0056b3;
+    background-color: #b300aa;
   }

@@ -8,18 +8,18 @@
   }
   
   .carList li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.0rem;
   }
   
   .carList button {
     margin-left: 1rem;
     padding: 0.3rem 0.6rem;
-    background-color: #dc3545;
+    background-color: #dc359c;
     color: #fff;
-    border: none;
+    border: 1.0 ;
     cursor: pointer;
   }
   
   .carList button:hover {
-    background-color: #c82333;
+    background-color: #dc359c;
   }

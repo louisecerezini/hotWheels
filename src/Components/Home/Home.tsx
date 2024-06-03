@@ -4,8 +4,8 @@ import styles from './Home.module.scss';
 const Home: React.FC = () => {
   return (
     <div className={styles.home}>
-      <h1>Página Inicial</h1>
-      <p>Bem-vindo ao CRUD de HotWheels!</p>
+      <h1>Home page</h1>
+      <p>Welcome to HotWheels CRUD!</p>
     </div>
   );
 };
