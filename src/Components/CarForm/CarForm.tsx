@@ -1,19 +1,14 @@
 import React, { useState } from 'react';
 import styles from './CarForm.module.scss';
+import { Car } from '../../Interfaces/Car';
 
 interface CarFormProps {
   onAddCar: (car: Car) => void;  
 }
 
-interface Car {
-  name: string;
-  brand: string;
-  color: string;
-  year: string;
-}
-
 const CarForm: React.FC<CarFormProps> = ({ onAddCar }) => {
   const [car, setCar] = useState<Car>({
+    id: 0,
     name: '',
     brand: '',
     color: '',
@@ -31,7 +26,7 @@ const CarForm: React.FC<CarFormProps> = ({ onAddCar }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onAddCar(car); 
-    setCar({ name: '', brand: '', color: '', year: '' }); 
+    setCar({ id: 0, name: '', brand: '', color: '', year: '' }); 
   };
 
   return (

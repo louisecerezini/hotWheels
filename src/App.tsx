@@ -1,29 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import axios from 'axios';
 import NavBar from './Components/NavBar/NavBar';
 import Home from './Components/Home/Home';
 import About from './Components/About/About';
 import CarList from './Components/CarList/CarList';
 import CarForm from './Components/CarForm/CarForm';
-
+import { Car } from './Interfaces/Car';
 
 const App = () => {
-  const [cars, setCars] = useState([
-    { id: 1, name: 'Mustang', brand: 'Ford' },
-    { id: 2, name: 'Camaro', brand: 'GM' },
-    { id: 3, name: 'Ferrari', brand: 'FIAT' },
-    { id: 4, name: 'Mazda', brand: 'Mazda' },
-    { id: 5, name: 'F-350', brand: 'Ford' }
-  ]); 
+  const [cars, setCars] = useState<Car[]>([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:5000/cars')
+      .then(response => setCars(response.data))
+      .catch(error => console.error('Error fetching cars:', error));
+  }, []);
 
   const handleDeleteCar = (id: number) => {
     setCars(cars.filter(car => car.id !== id));
+    // Você pode adicionar a lógica para deletar o carro na API aqui.
   };
 
-  const handleAddCar = (newCar: any) => {
-    setCars(prevCars => [...prevCars, { ...newCar, id: prevCars.length + 1 }]);
+  const handleAddCar = (newCar: Car) => {
+    axios.post('http://localhost:5000/cars', newCar)
+      .then(response => setCars(prevCars => [...prevCars, response.data]))
+      .catch(error => console.error('Error adding car:', error));
   };
-  
+
   return (
     <Router>
       <NavBar/>
@@ -38,5 +42,4 @@ const App = () => {
   );
 };
 
-
-export default App; 
+export default App;

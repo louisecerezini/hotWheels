@@ -1,11 +1,7 @@
 import React from 'react';
 import styles from './CarList.module.scss';
+import { Car } from '../../Interfaces/Car';
 
-interface Car {
-  id: number;
-  name: string;
-  brand: string;
-}
 
 interface CarListProps {
   cars: Car[];
@@ -19,7 +15,8 @@ const CarList: React.FC<CarListProps> = ({ cars, onDeleteCar }) => {
       <ul>
         {cars.map(car => (
           <li key={car.id}>
-            {car.name} - {car.brand} <button onClick={()=>onDeleteCar(car.id)}>Delete</button>
+            {car.name} - {car.brand} - {car.color} - {car.year}
+            <button onClick={() => onDeleteCar(car.id)}>Delete</button>
           </li>
         ))}
       </ul>
