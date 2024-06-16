@@ -1,25 +1,33 @@
 .carList {
-    padding: 1rem;
-  }
-  
-  .carList ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .carList li {
-    margin-bottom: 1.0rem;
-  }
-  
-  .carList button {
-    margin-left: 1rem;
-    padding: 0.3rem 0.6rem;
-    background-color: #dc359c;
-    color: #fff;
-    border: 1.0 ;
-    cursor: pointer;
-  }
-  
-  .carList button:hover {
-    background-color: #dc359c;
-  }
+  padding: 2rem;
+}
+
+.carList h2 {
+  color: #6a0dad; /* Roxo */
+}
+
+.carList ul {
+  list-style: none;
+  padding: 0;
+}
+
+.carList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  margin: 0.5rem 0;
+}
+
+.carList li button {
+  background-color: #ff69b4; /* Rosa */
+  border: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  cursor: pointer;
+}
+
+.carList li button:hover {
+  background-color: #c71585; /* Darker Rosa */
+}

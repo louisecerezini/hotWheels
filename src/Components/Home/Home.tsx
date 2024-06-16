@@ -6,7 +6,9 @@ const Home: React.FC = () => {
     <div className={styles.home}>
       <h1>Home page</h1>
       <p>Welcome to HotWheels CRUD!</p>
+      <img src="CAR.jpg" alt='carrinho hotwheels'></img>
     </div>
+    
   );
 };
 

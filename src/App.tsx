@@ -7,9 +7,11 @@ import About from './Components/About/About';
 import CarList from './Components/CarList/CarList';
 import CarForm from './Components/CarForm/CarForm';
 import { Car } from './Interfaces/Car';
+import CarEditForm from './Components/CarEditForm/carEditForm';
 
 const App = () => {
   const [cars, setCars] = useState<Car[]>([]);
+  const [editingCar, setEditingCar] = useState<Car | null>(null);
 
   useEffect(() => {
     axios.get('http://localhost:5000/cars')
@@ -18,8 +20,11 @@ const App = () => {
   }, []);
 
   const handleDeleteCar = (id: number) => {
-    setCars(cars.filter(car => car.id !== id));
-    // Você pode adicionar a lógica para deletar o carro na API aqui.
+    axios.delete(`http://localhost:5000/cars/${id}`)
+      .then(() => {
+        setCars(cars.filter(car => car.id !== id));
+      })
+      .catch(error => console.error('Error deleting car:', error));
   };
 
   const handleAddCar = (newCar: Car) => {
@@ -27,19 +32,40 @@ const App = () => {
       .then(response => setCars(prevCars => [...prevCars, response.data]))
       .catch(error => console.error('Error adding car:', error));
   };
+  const handleEditCar = (car: Car) => {
+    setEditingCar(car);
+  };
+
+  const handleSaveCar = (updatedCar: Car) => {
+    axios.put(`http://localhost:5000/cars`, updatedCar)
+      .then(() => {
+        setCars(cars.map(car => (car.id === updatedCar.id ? updatedCar : car)));
+        setEditingCar(null);
+      })
+      .catch(error => console.error('Error updating car:', error));
+  };
+
+  const handleCancelEdit = () => {
+    setEditingCar(null);
+  };
+
 
   return (
     <Router>
-      <NavBar/>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/cars" element={<CarList cars={cars} onDeleteCar={handleDeleteCar} />} />
-        <Route path="/add-car" element={<CarForm onAddCar={handleAddCar} />} />
-        <Route path="*" element={<h2>404 Not Found</h2>} />
-      </Routes>
-    </Router>
-  );
+    <NavBar />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/cars" element={
+        editingCar ? 
+          <CarEditForm car={editingCar} onSaveCar={handleSaveCar} onCancel={handleCancelEdit} /> : 
+          <CarList cars={cars} onDeleteCar={handleDeleteCar} onEditCar={handleEditCar} />
+      } />
+      <Route path="/add-car" element={<CarForm onAddCar={handleAddCar} />} />
+      <Route path="*" element={<h2>404 Not Found</h2>} />
+    </Routes>
+  </Router>
+);
 };
 
 export default App;

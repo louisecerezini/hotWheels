@@ -1,31 +1,42 @@
+/* CarForm.module.scss */
 .form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .form div {
-    margin-bottom: 1rem;
-  }
-  
-  .form label {
-    margin-right: 1rem;
-  }
-  
-  .form input {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-  }
-  
-  .form button {
-    padding: 0.5rem 1rem;
-    background-color: #b300aa;
-    color: #fff;
-    border: 1.0;
-    cursor: pointer;
-    width: 100px;
-    
-  }
-  
-  .form button:hover {
-    background-color: #b300aa;
-  }
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.form h2 {
+  color: #6a0dad; /* Roxo */
+}
+
+.form div {
+  margin-bottom: 1rem;
+}
+
+.form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.form input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.form button {
+  background-color: #ff69b4; /* Rosa */
+  border: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.form button:hover {
+  background-color: #c71585; /* Darker Rosa */
+}
