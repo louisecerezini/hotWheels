@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { TextField, Button, Box } from '@mui/material';
 import styles from './CarEditForm.module.scss';
 import { Car } from '../../Interfaces/Car';
-
-
 
 interface CarEditFormProps {
   car: Car;
@@ -31,28 +30,54 @@ const CarEditForm: React.FC<CarEditFormProps> = ({ car, onSaveCar, onCancel }) =
   }, [car]);
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
-    <h2>Edit Car</h2>
-    <div>
-      <label htmlFor="name">Name:</label>
-      <input type="text" id="name" name="name" value={editedCar.name} onChange={handleChange} />
-    </div>
-    <div>
-      <label htmlFor="brand">Brand:</label>
-      <input type="text" id="brand" name="brand" value={editedCar.brand} onChange={handleChange} />
-    </div>
-    <div>
-      <label htmlFor="color">Color:</label>
-      <input type="text" id="color" name="color" value={editedCar.color} onChange={handleChange} />
-    </div>
-    <div>
-      <label htmlFor="year">Year:</label>
-      <input type="text" id="year" name="year" value={editedCar.year} onChange={handleChange} />
-    </div>
-    <button type="submit">Save</button>
-    <button type="button" onClick={onCancel}>Cancel</button>
-  </form>
-);
+    <Box component="form" onSubmit={handleSubmit} className={styles.form}>
+      <h2>Edit Car</h2>
+      <TextField
+        label="Name"
+        id="name"
+        name="name"
+        value={editedCar.name}
+        onChange={handleChange}
+        fullWidth
+        margin="normal"
+      />
+      <TextField
+        label="Brand"
+        id="brand"
+        name="brand"
+        value={editedCar.brand}
+        onChange={handleChange}
+        fullWidth
+        margin="normal"
+      />
+      <TextField
+        label="Color"
+        id="color"
+        name="color"
+        value={editedCar.color}
+        onChange={handleChange}
+        fullWidth
+        margin="normal"
+      />
+      <TextField
+        label="Year"
+        id="year"
+        name="year"
+        value={editedCar.year}
+        onChange={handleChange}
+        fullWidth
+        margin="normal"
+      />
+      <Box mt={2}>
+        <Button type="submit" variant="contained" color="primary">
+          Save
+        </Button>
+        <Button type="button" variant="outlined" onClick={onCancel} sx={{ ml: 2 }}>
+          Cancel
+        </Button>
+      </Box>
+    </Box>
+  );
 };
 
 export default CarEditForm;

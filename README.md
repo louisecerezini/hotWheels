@@ -29,19 +29,19 @@ This is a project made in react using typeScript. It's a project for a HotWheels
 The components are in the ./src/components directory and have the following characteristics:
 
 1. Home: This is the homepage.
-   ![alt text](home.png)
+   ![alt text](Home.png)
 
 2. About: This is an explanation of the project. It is an application for a CRUD of HotWheels cars.
-   ![alt text](about.png)
+   ![alt text](About.png)
 
 3. CarForm: This is a form to add cars, the user can add cars according to the name, brand, color and year.  
-   ![alt text](add.png)
+   ![alt text](Add.png)
 
 4. CarEditForm: This is a form to edit cars, the user can adit cars according to the name, brand, color and year.
-   ![alt text](edit.png)
+   ![alt text](Edit.png)
 
 5. CarList: This is a list of cars and the user can delete the cars.
-   ![alt text](carlist.png)
+   ![alt text](Carlist.png)
 
 6. NavBar: This component is using for the application links.
 

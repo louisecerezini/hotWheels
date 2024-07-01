@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { TextField, Button, Box } from '@mui/material';
 import styles from './CarForm.module.scss';
 import { Car } from '../../Interfaces/Car';
+import { useNavigate } from 'react-router-dom';
 
 interface CarFormProps {
-  onAddCar: (car: Car) => void;  
+  onAddCar: (car: Car) => void;
 }
 
 const CarForm: React.FC<CarFormProps> = ({ onAddCar }) => {
@@ -14,6 +16,8 @@ const CarForm: React.FC<CarFormProps> = ({ onAddCar }) => {
     color: '',
     year: ''
   });
+  
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -25,31 +29,56 @@ const CarForm: React.FC<CarFormProps> = ({ onAddCar }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onAddCar(car); 
-    setCar({ id: 0, name: '', brand: '', color: '', year: '' }); 
+    onAddCar(car);
+    setCar({ id: 0, name: '', brand: '', color: '', year: '' });
+    navigate('/cars')
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
-       <h2>Add Car</h2>
-      <div>
-        <label htmlFor="name">Name:</label>
-        <input type="text" id="name" name="name" value={car.name} onChange={handleChange} />
-      </div>
-      <div>
-        <label htmlFor="brand">Brand:</label>
-        <input type="text" id="brand" name="brand" value={car.brand} onChange={handleChange} />
-      </div>
-      <div>
-        <label htmlFor="color">Color:</label>
-        <input type="text" id="color" name="color" value={car.color} onChange={handleChange} />
-      </div>
-      <div>
-        <label htmlFor="year">Year:</label>
-        <input type="text" id="year" name="year" value={car.year} onChange={handleChange} />
-      </div>
-      <button type="submit">Add</button>
-    </form>
+    <Box component="form" onSubmit={handleSubmit} className={styles.form}>
+      <h2>Add Car</h2>
+      <TextField
+        label="Name"
+        id="name"
+        name="name"
+        value={car.name}
+        onChange={handleChange}
+        fullWidth
+        margin="normal"
+      />
+      <TextField
+        label="Brand"
+        id="brand"
+        name="brand"
+        value={car.brand}
+        onChange={handleChange}
+        fullWidth
+        margin="normal"
+      />
+      <TextField
+        label="Color"
+        id="color"
+        name="color"
+        value={car.color}
+        onChange={handleChange}
+        fullWidth
+        margin="normal"
+      />
+      <TextField
+        label="Year"
+        id="year"
+        name="year"
+        value={car.year}
+        onChange={handleChange}
+        fullWidth
+        margin="normal"
+      />
+      <Box mt={2}>
+        <Button type="submit" variant="contained" color="primary">
+          Add
+        </Button>
+      </Box>
+    </Box>
   );
 };
 
